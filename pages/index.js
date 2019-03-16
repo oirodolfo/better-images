@@ -76,7 +76,6 @@ const theGuardianPicture = [
 ];
 
 
-const image = require("./images/image.png");
 
 function getSize() {
 
@@ -133,24 +132,32 @@ function AppIndex() {
      </picture>
 
      * **/
+
     return (
         <div>
             <Head>
                 <meta name="viewport" content="width=device-width"/>
             </Head>
+
+            {[[320, 480], [481, 480], [600, 480], [769, 480], [1024, 480], [1200, 480], [1800, 480]].map(([width, height]) => {
+                return <>
+                    <iframe src='/iframe' width={width} height={height} style={{display: 'block'}}/>
+                </>
+
+            })}
+            <hr/>
             {`(max-width: ${windowSize.innerWidth}px) 100vw, (max-width: ${windowSize.innerWidth / 2}px) 50vw, 33vw}`}
 
             Hello World.
 
-            <img
-                    src={image}
-                    srcSet={image.srcSet}
-                />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-            <hr />
+
+            <hr/>
+
+
+            <hr/>
+            <hr/>
+            <hr/>
+            <hr/>
 
             <img
                 srcSet="https://res.cloudinary.com/oirodolfo/image/upload/w_300/v1552752977/image_muyoik.png 300w,

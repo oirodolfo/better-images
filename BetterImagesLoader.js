@@ -18,7 +18,6 @@ const filesize = require("filesize");
 // };
 
 
-
 var sharpDefaultConfig = {
     crop: false,
     embed: false,
@@ -210,7 +209,25 @@ module.exports = async function loader(content) {
         return fileName;
     };
 
-    const createFile = createImage;
+    const createFile = ({data, width, height}) => {
+        const fileName = loaderUtils.interpolateName(loaderContext, name, {
+            context: outputContext,
+            content: data
+        })
+            .replace(/\[width\]/ig, width)
+            .replace(/\[height\]/ig, height);
+
+        const {outputPath, publicPath} = getOutputAndPublicPath(fileName, config);
+
+        loaderContext.emitFile(outputPath, data);
+
+        return {
+            src: publicPath + `+${JSON.stringify(` ${width}w`)}`,
+            path: publicPath,
+            width: width,
+            height: height
+        };
+    };
 
     //@todo
     //@todo
@@ -219,91 +236,103 @@ module.exports = async function loader(content) {
     //@todo
     //@todo
 
-
-const resizeImageSharp = (imagePath) => {
-    return {
-        resize: ({width, mime, inputFileName, name, filePath, options}) => {
-            const image = sharp(imagePath);
-
-            return new Promise((resolve, reject) => {
-                let resized = image
-                    .withMetadata()
-                    .png({
-                        // quality: 85,
-                        // compressionLevel: 7,
-                        ...sharpDefaultConfig,
-                        // progressive: true,
-                    }).resize(width, null);
-
-                // resized.toFile(`--${outputFileName}`).then(info => {
-                resized
-                    .toBuffer((err, data, {width, height}) => {
-                            // resized.toFile(`--${outputFileName}`).then(info => {
-                            // console.log(info);
-                            // debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
+     const createPlaceholder = ({data}) => {
+    const placeholder = data.toString('base64');
+    return JSON.stringify('data:' + (mime ? mime + ';' : '') + 'base64,' + placeholder);
+  };
 
 
-                            if (err) {
-                                console.log('rejected', err);
+    const resizeImageSharp = (imagePath) => {
+        return {
+            resize: ({width, mime, inputFileName, name, filePath, options}) => {
+                const image = sharp(imagePath);
 
-                                reject(err);
-                            } else {
-                                console.log('resolved', width, height);
+                return new Promise((resolve, reject) => {
+                    let resized = image.withMetadata();
+
+                    if (EXTS[mime] === 'png') {
+                        resized.png({
+                            ...sharpDefaultConfig,
+                        });
+                    } else if (EXTS[mime] === 'jpg' || EXTS[mime] === 'jpeg') {
+                        resized.jpeg({
+                            progressive: true,
+                            ...sharpDefaultConfig,
+                        })
+                    } else {
+                        return loaderCallback(new Error('Format "' + EXTS[mime] + '" not supported'));
+                    }
+
+                    resized.resize(width, null);
+
+                    // resized.toFile(`--${outputFileName}`).then(info => {
+                    resized
+                        .toBuffer((err, data, {width, height}) => {
+                                // resized.toFile(`--${outputFileName}`).then(info => {
+                                // console.log(info);
+                                // debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
+
+
+                                if (err) {
+                                    console.log('rejected', err);
+
+                                    reject(err);
+                                } else {
+                                    console.log('resolved', width, height);
+                                    return resolve({
+                                        data,
+                                        width,
+                                        height,
+                                        name,
+                                        mime,
+                                        filePath,
+                                        inputFileName
+                                    });
+                                }
+
+
                                 return resolve({
+                                    // info,
                                     data,
                                     width,
                                     height,
-                                    name,
                                     mime,
+                                    name,
                                     filePath,
                                     inputFileName
-                                });
+                                })
                             }
+                        )
+                    //     .catch((err) => {
+                    //     if (err) {
+                    //         return reject(err)
+                    //     } else {
+                    //
+                    //     }
+                    // });
 
+                    // resized.toBuffer((err, data, {height}) => {
+                    //     if (err) {
+                    //         console.log('rejected', err);
+                    //
+                    //         reject(err);
+                    //     } else {
+                    //         console.log('resolved', width, height);
+                    //         resolve({
+                    //             data,
+                    //             width,
+                    //             height,
+                    //             mime,
+                    //             filePath,
+                    //             inputFileName
+                    //         });
+                    //     }
+                    // });
+                });
+            }
+        };
 
-                            return resolve({
-                                // info,
-                                data,
-                                width,
-                                height,
-                                mime,
-                                name,
-                                filePath,
-                                inputFileName
-                            })
-                        }
-                    )
-                //     .catch((err) => {
-                //     if (err) {
-                //         return reject(err)
-                //     } else {
-                //
-                //     }
-                // });
-
-                // resized.toBuffer((err, data, {height}) => {
-                //     if (err) {
-                //         console.log('rejected', err);
-                //
-                //         reject(err);
-                //     } else {
-                //         console.log('resolved', width, height);
-                //         resolve({
-                //             data,
-                //             width,
-                //             height,
-                //             mime,
-                //             filePath,
-                //             inputFileName
-                //         });
-                //     }
-                // });
-            });
-        }
     };
-
-};
-
 
 
     async function runSharp(input, callback) {
@@ -374,13 +403,16 @@ const resizeImageSharp = (imagePath) => {
                 .then(results => {
                     return {
                         files: results.slice(0, -1).map(createFile),
-                        // placeholder: createPlaceholder(results[results.length - 1])
+                        placeholder: createPlaceholder(results[results.length - 1])
                     }
 
-                }).then(({files /**, placeholder**/}) => {
+                }).then(({files , placeholder}) => {
                     const srcset = files.map(f => f.src).join('+","+');
 
+                    debug('srcset %o', srcset);
+
                     const images = files.map(f => '{path:' + f.path + ',width:' + f.width + ',height:' + f.height + '}').join(',');
+                    debug('images %o', images);
 
                     const firstImage = files[0];
 
@@ -389,7 +421,7 @@ const resizeImageSharp = (imagePath) => {
                         'images:[' + images + '],' +
                         'src:' + firstImage.path + ',' +
                         'toString:function(){return ' + firstImage.path + '},' +
-                        // 'placeholder: ' + placeholder + ',' +
+                        'placeholder: ' + placeholder + ',' +
                         'width:' + firstImage.width + ',' +
                         'height:' + firstImage.height +
                         '};');
@@ -450,40 +482,40 @@ const resizeImageSharp = (imagePath) => {
 
     const img = runSharp(loaderContext.resourcePath, callbackToSharp);
     // img.then(({files, placeholder}) => {
-    const {files, placeholder} = await img;
-
-    let imagesSrcMap = [];
-
-    if (files) {
-        Promise.all(files)
-            .then(async file => {
-                console.log('🆑 file:️ ', file);
-
-                const {data, width, height, src, mime} = file;
-                const imageCreated = createImage({data, width, height, src, mime});
-
-                console.log('🕎 imageCreated: ', imageCreated);
-
-                imagesSrcMap.push(
-                    ...file
-                );
-
-                return imagesSrcMap;
-            }).then(imagesSrcMap2 => {
-
-            // console.log('imagesSrcMap', imagesSrcMap2);
-
-
-            const imgFinalModule = generateImgModule(imagesSrcMap2);
-
-
-            loaderCallback(null, imgFinalModule);
-            // loaderContext.emitFile(outputPath, imgFinalModule);
-
-            // console.log({imgFinalModule});
-        });
-
-    }
+    // const {files, placeholder} = await img;
+    //
+    // let imagesSrcMap = [];
+    //
+    // if (files) {
+    //     Promise.all(files)
+    //         .then(async file => {
+    //             console.log('🆑 file:️ ', file);
+    //
+    //             const {data, width, height, src, mime} = file;
+    //             const imageCreated = createImage({data, width, height, src, mime});
+    //
+    //             console.log('🕎 imageCreated: ', imageCreated);
+    //
+    //             imagesSrcMap.push(
+    //                 ...file
+    //             );
+    //
+    //             return imagesSrcMap;
+    //         }).then(imagesSrcMap2 => {
+    //
+    //         // console.log('imagesSrcMap', imagesSrcMap2);
+    //
+    //
+    //         const imgFinalModule = generateImgModule(imagesSrcMap2);
+    //
+    //
+    //         loaderCallback(null, imgFinalModule);
+    //         // loaderContext.emitFile(outputPath, imgFinalModule);
+    //
+    //         // console.log({imgFinalModule});
+    //     });
+    //
+    // }
 
 
     //
