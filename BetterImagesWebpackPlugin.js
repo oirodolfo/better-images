@@ -44,10 +44,11 @@ const emitFile = async (filePath, filename, imageData) => {
     try {
         await fs.outputFile(`${filePath}/${filename}`, imageData);
         filesEmitted.push(filename);
-
-        console.log('success!', filesEmitted)
+        return filesEmitted;
     } catch (err) {
-        console.error(err)
+        console.error(err);
+        throw new Error(err);
+        return;
     }
 };
 
@@ -105,11 +106,12 @@ const resizeImageSharp = (imagePath) => {
                     }).resize(width, null);
 
                 resized.toFile(`--${outputFileName}`).then(info => {
-                    // console.log(info);
-                    debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
+                        // console.log(info);
+                        // debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
 
 
                         return resolve({
+                            info,
                             // data,
                             width,
                             // height,
@@ -149,28 +151,22 @@ const resizeImageSharp = (imagePath) => {
 
 };
 
-const createFile = async ({data, width, height, mime, inputFileName, filePath}) => {
-    const outputName = `${inputFileName}
-                    @${width}x.${
-                        EXTS[mime]
-                    }
-                    `;
+const createFile = async ({data, width, height, mime, inputFileName, filePath}, callback) => {
+    const outputName = `${inputFileName}@${width}x.${EXTS[mime]}`;
 
-    console.log(`
-                    createFile
-                    called
-                    for => ${outputName}
-                    `);
-    console.log(width, height);
+    // console.log(`
+    //                 createFile
+    //                 called
+    //                 for => ${outputName}
+    //                 `);
+    // console.log(width, height);
     const emitted = await emitFile(filePath, outputName, data);
 
     if (emitted) {
+        typeof callback === "function" && callback({data, width, height, mime, inputFileName, filePath});
+
         return {
-            outputName: `
-                    @${width}x.${
-                        EXTS[mime]
-                    }
-                    `,
+            outputName: `@${width}x.${EXTS[mime]}`,
             filePath,
             data, width, height, mime
         }
@@ -211,11 +207,11 @@ const calculateXSizes = (imageCurrentSize) => {
 
 const createPlaceholder = (placeholder) => placeholder;
 
-async function runSharp() {
+async function runSharp(input, callback) {
     // const image = await sharpAdapter(input);
     // const metadata = await image.metadata();
     // const resized = await image.resize(200);
-    const input = 'pages/images/image.png';
+    input = input || 'pages/images/image.png';
 
 
     const ext = path.extname(input).replace(/\./, '');
@@ -270,23 +266,31 @@ async function runSharp() {
             }));
         }
 
-        Promise.all(promises).then(
+        const callbackFn = typeof callback === 'function' ? callback : (args) => console.warn(...args);
+
+        return Promise.all(promises).then(
             results => {
                 // console.log('results', results);
                 return {
-                    files: results.slice(0, -1).map(async file => createFile(file)),
+                    files: results.slice(0, -1).map(async file => createFile(file, callbackFn)),
                     placeholder: createPlaceholder(results[results.length - 1])
                 };
             })
             .then(({files, placeholder}) => {
-                files.forEach(emitFile);
-                console.log('files', files);
-                console.log('placeholder', placeholder);
+                console.log('Promise.all().then.then => files', files);
+
+                return {
+                    files,
+                    placeholder,
+                };
+                // files.forEach(emitFile);
+                // console.log('files', files);
+                // console.log('placeholder', placeholder);
             })
             .catch(err => {
                 if (err) {
                     console.error('promise all rejected catch', err);
-                    process.exit(1);
+                    // process.exit(1);
                 }
             });
 // console.log(promises);
@@ -311,7 +315,7 @@ async function runSharp() {
 //             }
 //
 //             console.log(`
-     //               buffer ${size}`
+    //               buffer ${size}`
 //     , await Promise.all(buffer));
     //         }
     //     )
@@ -320,9 +324,15 @@ async function runSharp() {
     // }
 }
 
+//
+// runSharp().then(a => {
+//     console.log(a);
+// }).catch(error => {
+//     console.error('sharp found an error', error);
+// });
+//
 
-runSharp().then(a => {
-    console.log(a);
-}).catch(error => {
-    console.error('sharp found an error', error);
-});
+
+module.exports = {
+    runSharp,
+};
