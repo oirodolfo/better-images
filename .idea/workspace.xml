@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd907909-d50a-401f-8aff-c020d35dde65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/responsive-loader.flow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@1280w.png" beforeDir="false" afterPath="$PROJECT_DIR$/----image.png@1280w.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@1600w.png" beforeDir="false" afterPath="$PROJECT_DIR$/----image.png@1600w.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@640w.png" beforeDir="false" afterPath="$PROJECT_DIR$/----image.png@640w.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@960w.png" beforeDir="false" afterPath="$PROJECT_DIR$/----image.png@960w.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cd907909-d50a-401f-8aff-c020d35dde65" name="Default Changelist" comment="sdsdsds">
+      <change beforePath="$PROJECT_DIR$/----image.png@1280w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/----image.png@1600w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/----image.png@320w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/----image.png@40w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/----image.png@640w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/----image.png@960w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@1280w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@1280x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@1600w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@1600x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@320w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@320x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@400x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@40w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@40x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@533x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@640w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@640x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@800x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@960w.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/--image.png@960x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/better-images.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/better-images.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/build-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next/server/pages-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/pages-manifest.json" afterDir="false" />
@@ -16,6 +31,34 @@
       <change beforePath="$PROJECT_DIR$/.next/static/runtime/webpack.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/runtime/webpack.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BetterImagesLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/BetterImagesLoader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BetterImagesWebpackPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/BetterImagesWebpackPlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/[object Promise]/0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/[object Promise]/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/[object Promise]/2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/[object Promise]/3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/[object Promise]/4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@1600x." beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@1600x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@400x." beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@400x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@533x." beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@533x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@800x." beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images_out/@800x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @1280x.png&#10;                    " beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @1600x.png&#10;                    " beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @320x.png&#10;                    " beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @640x.png&#10;                    " beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @960x.png&#10;                    " beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@1280x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@1600x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@320x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@400x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@533x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@640x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@800x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/images/image.png@960x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,28 +72,24 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/pages/images/image.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/next.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BetterImagesLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1480">
-              <caret line="173" column="10" lean-forward="true" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+            <state relative-caret-position="561">
+              <caret line="242" column="63" selection-start-line="242" selection-start-column="63" selection-end-line="242" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BetterImagesWebpackPlugin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="188" column="30" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -58,17 +97,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/responsive-loader.flow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="151" column="45" lean-forward="true" selection-start-line="151" selection-end-line="152" />
+            <state relative-caret-position="365">
+              <caret line="142" column="3" selection-start-line="142" selection-start-column="3" selection-end-line="147" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BetterImagesWebpackPlugin.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/output.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="274" column="93" selection-start-line="274" selection-start-column="93" selection-end-line="274" selection-end-column="93" />
+            <state relative-caret-position="292">
+              <caret line="72" column="32" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/next.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-138">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -76,11 +124,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-732">
-              <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
+            <state relative-caret-position="353">
+              <caret line="146" column="40" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
               <folding>
                 <element signature="e#30#79#0" expanded="true" />
-                <element signature="e#138#3049#0" />
               </folding>
             </state>
           </provider>
@@ -105,7 +152,21 @@
       <find>cre</find>
       <find>path</find>
       <find>process</find>
+      <find>createF</find>
       <find>emitFile</find>
+      <find>static</find>
+      <find>img</find>
+      <find>srcset</find>
+      <find>publicPath</find>
+      <find>map(f =&gt;</find>
+      <find>image</find>
+      <find>callbackto</find>
+      <find>const name</find>
+      <find>inputFileName</find>
+      <find>src</find>
+      <find>name</find>
+      <find>console.</find>
+      <find>outputPath</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,12 +178,12 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" />
         <option value="$PROJECT_DIR$/next.config.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/pages/index.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/responsive-loader.flow.js" />
-        <option value="$PROJECT_DIR$/BetterImagesLoader.js" />
+        <option value="$PROJECT_DIR$/pages/index.js" />
         <option value="$PROJECT_DIR$/BetterImagesWebpackPlugin.js" />
+        <option value="$PROJECT_DIR$/BetterImagesLoader.js" />
       </list>
     </option>
   </component>
@@ -140,7 +201,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
@@ -151,16 +212,6 @@
             <path>
               <item name="better-images" type="b2602c69:ProjectViewProjectNode" />
               <item name="better-images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="better-images" type="b2602c69:ProjectViewProjectNode" />
-              <item name="better-images" type="462c0819:PsiDirectoryNode" />
-              <item name="[object Promise]" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="better-images" type="b2602c69:ProjectViewProjectNode" />
-              <item name="better-images" type="462c0819:PsiDirectoryNode" />
-              <item name="images_out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="better-images" type="b2602c69:ProjectViewProjectNode" />
@@ -177,7 +228,22 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="better-images" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="better-images" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,20 +321,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552662497478</updated>
-      <workItem from="1552662498792" duration="18407000" />
+      <workItem from="1552662498792" duration="22502000" />
     </task>
+    <task id="LOCAL-00001" summary="sdsdsds">
+      <created>1552767256422</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1552767256422</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18407000" />
+    <option name="totallyTimeSpent" value="22502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09298999" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.049356222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.03685504" />
       <window_info anchor="bottom" id="Docker" order="0" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
@@ -276,7 +351,7 @@
       <window_info anchor="bottom" id="Quokka" order="4" weight="0.32923833" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Debug" order="7" visible="true" weight="0.3992629" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.3992629" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -288,6 +363,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sdsdsds" />
+    <option name="LAST_COMMIT_MESSAGE" value="sdsdsds" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/input.js">
@@ -325,29 +404,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/output.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.jsx">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-732">
-          <caret line="78" column="41" selection-start-line="78" selection-start-column="41" selection-end-line="78" selection-end-column="41" />
-          <folding>
-            <element signature="e#30#79#0" expanded="true" />
-            <element signature="e#138#3049#0" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -387,31 +448,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png&#10;                    @320x.png&#10;                    ">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png&#10;                    @640x.png&#10;                    ">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png&#10;                    @960x.png&#10;                    ">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png&#10;                    @1600x.png&#10;                    ">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png@1600x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images_out/@400x.">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/static/development/pages/_error.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="478" column="13" selection-start-line="478" selection-start-column="7" selection-end-line="478" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/static/development/pages/_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/static/development/pages/next/dist/pages/_error.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/static/development/dll/dll_e4f214dbf606b17af748.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="111" column="236531" selection-start-line="111" selection-start-column="236525" selection-end-line="111" selection-end-column="236531" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/static/chunks/0.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/static/webpack/1ba63c9af8218d4b7c27.hot-update.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/build-manifest.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/react-loadable-manifest.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/----image.png@40w.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.next/server/static/development/pages/_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png@320x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png@640x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png@960x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/----image.png@1600w.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/----image.png@320w.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/images/image.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/next.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="-138">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="146" column="40" selection-start-line="146" selection-start-column="40" selection-end-line="146" selection-end-column="40" />
+          <folding>
+            <element signature="e#30#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/output.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/responsive-loader.flow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="151" column="45" lean-forward="true" selection-start-line="151" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BetterImagesLoader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1480">
-          <caret line="173" column="10" lean-forward="true" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
+        <state relative-caret-position="365">
+          <caret line="142" column="3" selection-start-line="142" selection-start-column="3" selection-end-line="147" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BetterImagesWebpackPlugin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="274" column="93" selection-start-line="274" selection-start-column="93" selection-end-line="274" selection-end-column="93" />
+        <state relative-caret-position="277">
+          <caret line="188" column="30" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BetterImagesLoader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="242" column="63" selection-start-line="242" selection-start-column="63" selection-end-line="242" selection-end-column="63" />
         </state>
       </provider>
     </entry>

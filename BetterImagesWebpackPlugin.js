@@ -42,7 +42,7 @@ const filesEmitted = [];
 
 const emitFile = async (filePath, filename, imageData) => {
     try {
-        await fs.outputFile(`${filePath}/${filename}`, imageData);
+        // await fs.outputFile(`${filePath}/${filename}`, imageData);
         filesEmitted.push(filename);
         return filesEmitted;
     } catch (err) {
@@ -92,12 +92,13 @@ const calculateSize = (neededSize, originalSize) => {
 
 const resizeImageSharp = (imagePath) => {
     return {
-        resize: ({width, mime, inputFileName, filePath, options}) => {
+        resize: ({width, mime, inputFileName, name, filePath, options}) => {
             const image = sharp(imagePath);
             const outputFileName = `--${inputFileName}@${width}w.${EXTS[mime]}`;
 
             return new Promise((resolve, reject) => {
                 let resized = image
+                    .withMetadata()
                     .png({
                         // quality: 85,
                         // compressionLevel: 7,
@@ -105,28 +106,51 @@ const resizeImageSharp = (imagePath) => {
                         // progressive: true,
                     }).resize(width, null);
 
-                resized.toFile(`--${outputFileName}`).then(info => {
-                        // console.log(info);
-                        // debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
+                // resized.toFile(`--${outputFileName}`).then(info => {
+                resized
+                    .toBuffer((err, data, {width, height}) => {
+                            // resized.toFile(`--${outputFileName}`).then(info => {
+                            // console.log(info);
+                            // debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
 
 
-                        return resolve({
-                            info,
-                            // data,
-                            width,
-                            // height,
-                            mime,
-                            filePath,
-                            inputFileName
-                        })
-                    }
-                ).catch((err) => {
-                    if (err) {
-                        return reject(err)
-                    } else {
+                            if (err) {
+                                console.log('rejected', err);
 
-                    }
-                });
+                                reject(err);
+                            } else {
+                                console.log('resolved', width, height);
+                                return resolve({
+                                    data,
+                                    width,
+                                    height,
+                                    name,
+                                    mime,
+                                    filePath,
+                                    inputFileName
+                                });
+                            }
+
+
+                            return resolve({
+                                // info,
+                                data,
+                                width,
+                                height,
+                                mime,
+                                name,
+                                filePath,
+                                inputFileName
+                            })
+                        }
+                    )
+                //     .catch((err) => {
+                //     if (err) {
+                //         return reject(err)
+                //     } else {
+                //
+                //     }
+                // });
 
                 // resized.toBuffer((err, data, {height}) => {
                 //     if (err) {
@@ -151,7 +175,7 @@ const resizeImageSharp = (imagePath) => {
 
 };
 
-const createFile = async ({data, width, height, mime, inputFileName, filePath}, callback) => {
+const createFile = async ({data, width, height, mime,name, inputFileName, filePath}, callback, publicPath) => {
     const outputName = `${inputFileName}@${width}x.${EXTS[mime]}`;
 
     // console.log(`
@@ -160,14 +184,35 @@ const createFile = async ({data, width, height, mime, inputFileName, filePath}, 
     //                 for => ${outputName}
     //                 `);
     // console.log(width, height);
+    console.log(name, name, name, name, name, name);
+    console.log(name, name, name, name, name, name);
+    console.log(name, name, name, name, name, name);
+    console.log(name, name, name, name, name, name);
+
+
     const emitted = await emitFile(filePath, outputName, data);
 
+    const src = publicPath + `+${JSON.stringify(` ${width}w`)}`;
+
     if (emitted) {
-        typeof callback === "function" && callback({data, width, height, mime, inputFileName, filePath});
+        if (typeof callback === "function") {
+            callback({
+                src,
+                data,
+                width,
+                name,
+                height,
+                mime,
+                inputFileName,
+                filePath,
+                outputName,
+            });
+        }
 
         return {
-            outputName: `@${width}x.${EXTS[mime]}`,
+            outputName,
             filePath,
+            src,
             data, width, height, mime
         }
     }
@@ -216,7 +261,7 @@ async function runSharp(input, callback) {
 
     const ext = path.extname(input).replace(/\./, '');
     const filePath = path.dirname(input);
-    // const name = ('[hash]-[width].[ext]').replace(/\[ext\]/ig, ext);
+    const name = ('[hash]-[width].[ext]').replace(/\[ext\]/ig, ext);
     const inputFileName = path.basename(input);
 
     // console.log('name', {name});
@@ -250,6 +295,7 @@ async function runSharp(input, callback) {
                     mime,
                     options: adapterOptions,
                     inputFileName,
+                    name,
                     filePath
                 }));
             }
@@ -262,11 +308,12 @@ async function runSharp(input, callback) {
                 options: adapterOptions,
                 mime,
                 inputFileName,
+                name,
                 filePath
             }));
         }
 
-        const callbackFn = typeof callback === 'function' ? callback : (args) => console.warn(...args);
+        const callbackFn = typeof callback === 'function' ? callback : console.warn;
 
         return Promise.all(promises).then(
             results => {

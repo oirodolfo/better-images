@@ -140,7 +140,16 @@ function AppIndex() {
             </Head>
             {`(max-width: ${windowSize.innerWidth}px) 100vw, (max-width: ${windowSize.innerWidth / 2}px) 50vw, 33vw}`}
 
-            Hello World. <img src={image} />
+            Hello World.
+
+            <img
+                    src={image}
+                    srcSet={image.srcSet}
+                />
+            <hr />
+            <hr />
+            <hr />
+            <hr />
             <hr />
 
             <img

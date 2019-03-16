@@ -63,6 +63,8 @@ const EXTS = {
 
 module.exports = async function loader(content) {
     const options = loaderUtils.getOptions(this);
+    this.debug = true;
+
     const callback = this.async();
     const loaderCallback = callback;
 
@@ -77,7 +79,7 @@ module.exports = async function loader(content) {
     const mime = MIMES[ext];
 
     const name = ('[hash]-[width].[ext]').replace(/\[ext\]/ig, ext);
-    console.log(name, ext, mime);
+    console.log({name, ext, mime});
     // console.log(name)
     // console.log(name)
     // console.log(name)
@@ -85,22 +87,65 @@ module.exports = async function loader(content) {
 
 
     // if (!parsedResourceQuery) {
-    console.log(JSON.stringify(parsedResourceQuery));
+    // console.log(JSON.stringify(parsedResourceQuery));
 
-    const fileName = loaderUtils.interpolateName(loaderContext, name, {
-        context: outputContext,
-        content: content
-    })
-        .replace(/\[width\]/ig, '100')
-        .replace(/\[height\]/ig, '100');
+    // const fileName = loaderUtils.interpolateName(loaderContext, name, {
+    //     context: outputContext,
+    //     content: content
+    // })
+    //     .replace(/\[width\]/ig, '100')
+    //     .replace(/\[height\]/ig, '100');
 
-    console.log(fileName);
-
-    const {outputPath, publicPath} = getOutputAndPublicPath(fileName, config);
+    // console.log(fileName);
 
 
-    const img = runSharp(loaderContext.resourcePath);
+    /**
+     *
+     * @param data
+     * @param width
+     * @param height
+     * @param src
+     * @param mime
+     * @returns {*}
+     */
+    const createImage = ({data, width, height, src, mime}) => {
+          let fileName = loaderUtils.interpolateName(loaderContext, name, {
+            context: outputContext,
+            content: data
+        });
 
+
+          console.log('---- FILENAME NO REPLACED', fileName);
+
+          fileName = fileName.replace(/\[width\]/ig, width)
+            .replace(/\[height\]/ig, height);
+
+          return fileName;
+    };
+
+
+    /**
+     *
+     * @param data
+     * @param width
+     * @param height
+     */
+    const callbackToSharp = ({data, width, height}) => {
+
+        const fileName = loaderUtils.interpolateName(loaderContext, name, {
+            context: outputContext,
+            content: data
+        }).replace(/\[width\]/ig, width)
+            .replace(/\[height\]/ig, height);
+
+        const {outputPath, publicPath} = getOutputAndPublicPath(fileName, config);
+
+        console.log('❌ ❌ ❌ callbackToSharp', fileName, outputPath, publicPath);
+
+        loaderContext.emitFile(fileName, data);
+    };
+
+    const img = runSharp(loaderContext.resourcePath, callbackToSharp);
     // img.then(({files, placeholder}) => {
     const {files, placeholder} = await img;
 
@@ -108,7 +153,14 @@ module.exports = async function loader(content) {
 
     if (files) {
         Promise.all(files)
-            .then(file => {
+            .then(async file => {
+                console.log('🆑 file:️ ', file);
+
+                const {data, width, height, src, mime} = file;
+                const imageCreated = createImage({data, width, height, src, mime});
+
+                console.log('🕎 imageCreated: ', imageCreated);
+
                 imagesSrcMap.push(
                     ...file
                 );
@@ -116,14 +168,16 @@ module.exports = async function loader(content) {
                 return imagesSrcMap;
             }).then(imagesSrcMap2 => {
 
-            console.log('imagesSrcMap', imagesSrcMap2);
+            // console.log('imagesSrcMap', imagesSrcMap2);
 
-            const imgFinalModule = generateImgModule(imagesSrcMap2, {outputPath, publicPath});
+
+            const imgFinalModule = generateImgModule(imagesSrcMap2);
+
 
             loaderCallback(null, imgFinalModule);
-            loaderContext.emitFile(outputPath, content);
+            // loaderContext.emitFile(outputPath, imgFinalModule);
 
-            console.log({imgFinalModule});
+            // console.log({imgFinalModule});
         });
 
     }
@@ -162,30 +216,33 @@ module.exports = async function loader(content) {
 
 // Apply some transformations to the source...
 
-    return `export default ${JSON.stringify(content)}`;
+    // return `export default ${JSON.stringify(content)}`;
 
 // return content;
 
 
     function generateImgModule(imagesSrcMap2) {
-        const files = imagesSrcMap2;
-        const getOutputName = (outputName) => {
-            return `"/${outputPath}/${outputName}"`;
-        };
-        const srcset = files.map(f => getOutputName(f.outputName)).join('+","+');
-        // @fixme USE OUTPUTPATH PLZ
 
-        const images = files.map(f => '{path:' + `${outputPath}/${f.outputName}` + ',width:' + f.width + ',height:' + (f.height || 'auto') + '}').join(',');
+        const files = imagesSrcMap2;
+        const getOutputName = (outputName, outputPath = '') => {
+            return `"${outputPath}/${outputName}"`;
+        };
+
+        const srcset = files.map(f => getOutputName(f.src)).join('+","+');
+        // @fixme USE OUTPUTPATH PLZ
+        //
+        // const images = files.map(f => '{path:' + `${publicPath}/${f.outputName}` + ',width:' + f.width + ',height:' + (f.height || 'auto') + '}').join(',');
 
         const firstImage = files[0];
+        // src:${getOutputName(firstImage.outputName)},
+
 
         return `module.exports = {
-            srcSet:${srcset},
-            src:${getOutputName(firstImage.outputName)},
+            srcSet:[${srcset}],
             toString:function(){
                 return ${getOutputName(firstImage.outputName)}},
             width: ${firstImage.width},
-        };`;
+        };`.trim();
         // return undefined;
     }
 }
