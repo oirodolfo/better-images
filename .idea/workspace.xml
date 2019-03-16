@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd907909-d50a-401f-8aff-c020d35dde65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/iframe.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.next/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/build-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.next/server/pages-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/pages-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next/static/runtime/webpack.js" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/runtime/webpack.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next/static/runtime/webpack.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/runtime/webpack.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BetterImagesLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/BetterImagesLoader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/iframe.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/iframe.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -57,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="266">
+              <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="104" selection-end-column="11" />
               <folding>
                 <element signature="e#30#79#0" expanded="true" />
                 <element signature="e#138#2699#0" />
@@ -71,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/iframe.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+            <state relative-caret-position="392">
+              <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -272,7 +269,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552662497478</updated>
-      <workItem from="1552662498792" duration="25087000" />
+      <workItem from="1552662498792" duration="26013000" />
     </task>
     <task id="LOCAL-00001" summary="sdsdsds">
       <created>1552767256422</created>
@@ -295,18 +292,25 @@
       <option name="project" value="LOCAL" />
       <updated>1552772216474</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ASDASDS">
+      <created>1552774303791</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1552774303791</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25087000" />
+    <option name="totallyTimeSpent" value="26013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21387696" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16595136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" visible="true" weight="0.03685504" />
       <window_info anchor="bottom" id="Docker" order="0" />
@@ -323,7 +327,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Run" order="3" visible="true" weight="0.3197425" />
+      <window_info active="true" anchor="right" id="Run" order="3" visible="true" weight="0.3197425" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="266">
+          <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="104" selection-end-column="11" />
           <folding>
             <element signature="e#30#79#0" expanded="true" />
             <element signature="e#138#2699#0" />
@@ -555,10 +559,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react/cjs/react.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="1474" column="36" lean-forward="true" selection-start-line="1474" selection-start-column="36" selection-end-line="1474" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/Downloads/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13589" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/iframe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+        <state relative-caret-position="392">
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
         </state>
       </provider>
     </entry>

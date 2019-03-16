@@ -76,9 +76,7 @@ const theGuardianPicture = [
 ];
 
 
-
 function getSize() {
-
     return {
         innerHeight: window.innerHeight,
         innerWidth: window.innerWidth,
@@ -141,7 +139,8 @@ function AppIndex() {
 
             {[[320, 480], [481, 480], [600, 480], [769, 480], [1024, 480], [1200, 480], [1800, 480]].map(([width, height]) => {
                 return <>
-                    <iframe src='/iframe' width={width} height={height} style={{display: 'block'}}/>
+                    <iframe key={`iframe-${width}`} src='/iframe' width={width} height={height}
+                            style={{display: 'block'}}/>
                 </>
 
             })}
