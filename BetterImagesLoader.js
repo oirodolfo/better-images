@@ -1,7 +1,10 @@
 const loaderUtils = require('loader-utils');
 const path = require('path');
-const {runSharp} = require('./BetterImagesWebpackPlugin');
+// const {runSharp} = require('./BetterImagesWebpackPlugin');
 const sharp = require("sharp");
+const fs = require('fs-extra');
+const debug = require('debug')('BETTER-IMAGES');
+const filesize = require("filesize");
 
 // import validateOptions from 'schema-utils';
 
@@ -13,6 +16,107 @@ const sharp = require("sharp");
 //         }
 //     }
 // };
+
+
+
+var sharpDefaultConfig = {
+    crop: false,
+    embed: false,
+    min: false,
+    max: false,
+    withoutEnlargement: true,
+    skipOnEnlargement: false,
+    ignoreAspectRatio: false,
+    interpolator: 'bicubic',
+    kernel: 'lanczos3',
+    extractBeforeResize: false,
+    extractAfterResize: false,
+    background: '#fff',
+    flatten: false,
+    negate: false,
+    rotate: false,
+    flip: false,
+    flop: false,
+    blur: false,
+    sharpen: false,
+    threshold: false,
+    gamma: false,
+    grayscale: false,
+    normalize: false,
+    quality: 10,
+    progressive: false,
+    withMetadata: false,
+    tile: false,
+    withoutChromaSubsampling: false,
+    compressionLevel: 6,
+    format: null
+};
+
+const filesEmitted = [];
+
+const emitFile = async (filePath, filename, imageData) => {
+    try {
+        // await fs.outputFile(`${filePath}/${filename}`, imageData);
+        filesEmitted.push(filename);
+        return filesEmitted;
+    } catch (err) {
+        console.error(err);
+        throw new Error(err);
+        return;
+    }
+};
+
+
+const calculateSize = (neededSize, originalSize) => {
+    if (neededSize === undefined || neededSize === null) {
+        return null
+    } else if (typeof neededSize === 'string' && neededSize.indexOf('%') > -1) {
+        const percentage = parseFloat(neededSize);
+
+        if (isNaN(percentage)) {
+            throw new Error(`Wrong percentage size "${neededSize}"`)
+        }
+
+        return Math.round(originalSize * percentage * 0.01)
+    } else {
+        neededSize = parseInt(neededSize);
+
+        if (isNaN(neededSize)) {
+            throw new Error(`Wrong size "${neededSize}"`)
+        }
+
+        return neededSize
+    }
+};
+
+
+const calculateXSizes = (imageCurrentSize) => {
+
+    const configs = [
+        {width: '20%'},
+        {width: '40%'},
+        {width: '60%'},
+        {width: '80%'},
+        {width: '100%'}
+    ];
+
+    const configsMap = configs.map(({width}) => {
+        return calculateSize(width, imageCurrentSize);
+    });
+
+    debug(configsMap);
+    // console.log(configsMap);
+
+
+    return configsMap;
+
+    return [
+        Math.round(imageCurrentSize / 1),
+        Math.round(imageCurrentSize / 2),
+        Math.round(imageCurrentSize / 3),
+        Math.round(imageCurrentSize / 4),
+    ];
+};
 
 
 const getOutputAndPublicPath = (fileName, {outputPath: configOutputPath, publicPath: configPublicPath}) => {
@@ -80,6 +184,230 @@ module.exports = async function loader(content) {
 
     const name = ('[hash]-[width].[ext]').replace(/\[ext\]/ig, ext);
     console.log({name, ext, mime});
+
+
+    /**
+     *
+     * @param data
+     * @param width
+     * @param height
+     * @param src
+     * @param mime
+     * @returns {*}
+     */
+    const createImage = ({data, width, height, src, mime}) => {
+        let fileName = loaderUtils.interpolateName(loaderContext, name, {
+            context: outputContext,
+            content: data
+        });
+
+
+        console.log('---- FILENAME NO REPLACED', fileName);
+
+        fileName = fileName.replace(/\[width\]/ig, width)
+            .replace(/\[height\]/ig, height);
+
+        return fileName;
+    };
+
+    const createFile = createImage;
+
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+
+
+const resizeImageSharp = (imagePath) => {
+    return {
+        resize: ({width, mime, inputFileName, name, filePath, options}) => {
+            const image = sharp(imagePath);
+
+            return new Promise((resolve, reject) => {
+                let resized = image
+                    .withMetadata()
+                    .png({
+                        // quality: 85,
+                        // compressionLevel: 7,
+                        ...sharpDefaultConfig,
+                        // progressive: true,
+                    }).resize(width, null);
+
+                // resized.toFile(`--${outputFileName}`).then(info => {
+                resized
+                    .toBuffer((err, data, {width, height}) => {
+                            // resized.toFile(`--${outputFileName}`).then(info => {
+                            // console.log(info);
+                            // debug(`${info.width}: %o, %s difference`, filesize(info.size, {base: 10}), filesize(image.size, {base: 10}));
+
+
+                            if (err) {
+                                console.log('rejected', err);
+
+                                reject(err);
+                            } else {
+                                console.log('resolved', width, height);
+                                return resolve({
+                                    data,
+                                    width,
+                                    height,
+                                    name,
+                                    mime,
+                                    filePath,
+                                    inputFileName
+                                });
+                            }
+
+
+                            return resolve({
+                                // info,
+                                data,
+                                width,
+                                height,
+                                mime,
+                                name,
+                                filePath,
+                                inputFileName
+                            })
+                        }
+                    )
+                //     .catch((err) => {
+                //     if (err) {
+                //         return reject(err)
+                //     } else {
+                //
+                //     }
+                // });
+
+                // resized.toBuffer((err, data, {height}) => {
+                //     if (err) {
+                //         console.log('rejected', err);
+                //
+                //         reject(err);
+                //     } else {
+                //         console.log('resolved', width, height);
+                //         resolve({
+                //             data,
+                //             width,
+                //             height,
+                //             mime,
+                //             filePath,
+                //             inputFileName
+                //         });
+                //     }
+                // });
+            });
+        }
+    };
+
+};
+
+
+
+    async function runSharp(input, callback) {
+        // const image = await sharpAdapter(input);
+        // const metadata = await image.metadata();
+        // const resized = await image.resize(200);
+        input = input || 'pages/images/image.png';
+
+
+        const ext = path.extname(input).replace(/\./, '');
+        const filePath = path.dirname(input);
+        const name = ('[hash]-[width].[ext]').replace(/\[ext\]/ig, ext);
+        const inputFileName = path.basename(input);
+
+        // console.log('name', {name});
+
+        const mime = MIMES[ext];
+        if (!mime) {
+            throw new Error('Cant parse ' + ext + ' format');
+        }
+
+
+        const imageSharp = sharp(input);
+        let adapterOptions = {
+            quality: 80,
+        };
+
+        const {width} = await imageSharp.metadata();
+
+
+        if (width) {
+            const sizes = calculateXSizes(width);
+            let promises = [];
+            const widthsToGenerate = new Set();
+            (Array.isArray(sizes) ? sizes : [sizes]).forEach((size) => {
+                const newWidth = Math.min(width, parseInt(size, 10));
+
+                // Only resize images if they aren't an exact copy of one already being resized...
+                if (!widthsToGenerate.has(newWidth)) {
+                    widthsToGenerate.add(newWidth);
+                    promises.push(resizeImageSharp(input).resize({
+                        width: newWidth,
+                        mime,
+                        options: adapterOptions,
+                        inputFileName,
+                        name,
+                        filePath
+                    }));
+                }
+            });
+
+            const outputPlaceholder = true;
+            if (outputPlaceholder) {
+                promises.push(resizeImageSharp(input).resize({
+                    width: 40,
+                    options: adapterOptions,
+                    mime,
+                    inputFileName,
+                    name,
+                    filePath
+                }));
+            }
+
+            const callbackFn = typeof callback === 'function' ? callback : console.warn;
+
+
+            return Promise.all(promises)
+                .then(results => {
+                    return {
+                        files: results.slice(0, -1).map(createFile),
+                        // placeholder: createPlaceholder(results[results.length - 1])
+                    }
+
+                }).then(({files /**, placeholder**/}) => {
+                    const srcset = files.map(f => f.src).join('+","+');
+
+                    const images = files.map(f => '{path:' + f.path + ',width:' + f.width + ',height:' + f.height + '}').join(',');
+
+                    const firstImage = files[0];
+
+                    loaderCallback(null, 'module.exports = {' +
+                        'srcSet:' + srcset + ',' +
+                        'images:[' + images + '],' +
+                        'src:' + firstImage.path + ',' +
+                        'toString:function(){return ' + firstImage.path + '},' +
+                        // 'placeholder: ' + placeholder + ',' +
+                        'width:' + firstImage.width + ',' +
+                        'height:' + firstImage.height +
+                        '};');
+                })
+                .catch(err => loaderCallback(err));
+
+        }
+    }
+
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+    //@todo
+
+
     // console.log(name)
     // console.log(name)
     // console.log(name)
@@ -97,31 +425,6 @@ module.exports = async function loader(content) {
     //     .replace(/\[height\]/ig, '100');
 
     // console.log(fileName);
-
-
-    /**
-     *
-     * @param data
-     * @param width
-     * @param height
-     * @param src
-     * @param mime
-     * @returns {*}
-     */
-    const createImage = ({data, width, height, src, mime}) => {
-          let fileName = loaderUtils.interpolateName(loaderContext, name, {
-            context: outputContext,
-            content: data
-        });
-
-
-          console.log('---- FILENAME NO REPLACED', fileName);
-
-          fileName = fileName.replace(/\[width\]/ig, width)
-            .replace(/\[height\]/ig, height);
-
-          return fileName;
-    };
 
 
     /**

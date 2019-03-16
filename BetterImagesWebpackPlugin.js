@@ -175,7 +175,7 @@ const resizeImageSharp = (imagePath) => {
 
 };
 
-const createFile = async ({data, width, height, mime,name, inputFileName, filePath}, callback, publicPath) => {
+const createFile = async ({data, width, height, mime, name, inputFileName, filePath}, callback, publicPath) => {
     const outputName = `${inputFileName}@${width}x.${EXTS[mime]}`;
 
     // console.log(`
@@ -315,34 +315,64 @@ async function runSharp(input, callback) {
 
         const callbackFn = typeof callback === 'function' ? callback : console.warn;
 
-        return Promise.all(promises).then(
-            results => {
-                // console.log('results', results);
-                return {
-                    files: results.slice(0, -1).map(async file => createFile(file, callbackFn)),
-                    placeholder: createPlaceholder(results[results.length - 1])
-                };
-            })
-            .then(({files, placeholder}) => {
-                console.log('Promise.all().then.then => files', files);
 
+        return Promise.all(promises)
+            .then(results => {
                 return {
-                    files,
-                    placeholder,
-                };
-                // files.forEach(emitFile);
-                // console.log('files', files);
-                // console.log('placeholder', placeholder);
-            })
-            .catch(err => {
-                if (err) {
-                    console.error('promise all rejected catch', err);
-                    // process.exit(1);
+                    files: results.slice(0, -1).map(createFile),
+                    placeholder: createPlaceholder(results[results.length - 1])
                 }
-            });
+
+            }).then(({files, placeholder}) => {
+                const srcset = files.map(f => f.src).join('+","+');
+
+                const images = files.map(f => '{path:' + f.path + ',width:' + f.width + ',height:' + f.height + '}').join(',');
+
+                const firstImage = files[0];
+
+                loaderCallback(null, 'module.exports = {' +
+                    'srcSet:' + srcset + ',' +
+                    'images:[' + images + '],' +
+                    'src:' + firstImage.path + ',' +
+                    'toString:function(){return ' + firstImage.path + '},' +
+                    'placeholder: ' + placeholder + ',' +
+                    'width:' + firstImage.width + ',' +
+                    'height:' + firstImage.height +
+                    '};');
+            })
+            .catch(err => loaderCallback(err));
+    }
+
+
+
+// return Promise.all(promises).then(
+//     results => {
+//         // console.log('results', results);
+//         return {
+//             files: results.slice(0, -1).map(async file => createFile(file, callbackFn)),
+//             placeholder: createPlaceholder(results[results.length - 1])
+//         };
+//     })
+//     .then(({files, placeholder}) => {
+//         console.log('Promise.all().then.then => files', files);
+//
+//         return {
+//             files,
+//             placeholder,
+//         };
+//         // files.forEach(emitFile);
+//         // console.log('files', files);
+//         // console.log('placeholder', placeholder);
+//     })
+//     .catch(err => {
+//         if (err) {
+//             console.error('promise all rejected catch', err);
+//             // process.exit(1);
+//         }
+//     });
 // console.log(promises);
 
-    }
+}
 
 
 //
@@ -362,13 +392,13 @@ async function runSharp(input, callback) {
 //             }
 //
 //             console.log(`
-    //               buffer ${size}`
+//               buffer ${size}`
 //     , await Promise.all(buffer));
-    //         }
-    //     )
-    // } else {
-    //     console.error('not width')
-    // }
+//         }
+//     )
+// } else {
+//     console.error('not width')
+// }
 }
 
 //

@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd907909-d50a-401f-8aff-c020d35dde65" name="Default Changelist" comment="sdsdsds">
-      <change beforePath="$PROJECT_DIR$/----image.png@1280w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@1600w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@320w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@40w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@640w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/----image.png@960w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@1280w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@1280x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@1600w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@1600x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@320w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@320x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@400x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@40w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@40x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@533x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@640w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@640x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@800x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@960w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/--image.png@960x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/better-images.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/better-images.iml" afterDir="false" />
+    <list default="true" id="cd907909-d50a-401f-8aff-c020d35dde65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/build-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.next/server/pages-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.next/server/pages-manifest.json" afterDir="false" />
@@ -31,34 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.next/static/runtime/webpack.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.next/static/runtime/webpack.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BetterImagesLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/BetterImagesLoader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BetterImagesWebpackPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/BetterImagesWebpackPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/[object Promise]/0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/[object Promise]/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/[object Promise]/2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/[object Promise]/3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/[object Promise]/4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@1600x." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@1600x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@400x." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@400x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@533x." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@533x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@800x." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images_out/@800x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @1280x.png&#10;                    " beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @1600x.png&#10;                    " beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @320x.png&#10;                    " beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @640x.png&#10;                    " beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png&#10;                    @960x.png&#10;                    " beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@1280x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@1600x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@320x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@400x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@533x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@640x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@800x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/images/image.png@960x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -79,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BetterImagesLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="242" column="63" selection-start-line="242" selection-start-column="63" selection-end-line="242" selection-end-column="63" />
+            <state relative-caret-position="643">
+              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
             </state>
           </provider>
         </entry>
@@ -88,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BetterImagesWebpackPlugin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="188" column="30" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
+            <state relative-caret-position="602">
+              <caret line="53" lean-forward="true" selection-start-line="6" selection-end-line="53" />
             </state>
           </provider>
         </entry>
@@ -97,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/responsive-loader.flow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="142" column="3" selection-start-line="142" selection-start-column="3" selection-end-line="147" selection-end-column="37" />
+            <state relative-caret-position="2540">
+              <caret line="196" column="13" selection-start-line="196" selection-start-column="13" selection-end-line="196" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -137,9 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>metadata</find>
-      <find>ada</find>
-      <find>resize</find>
       <find>bu</find>
       <find>@x</find>
       <find>filesize</find>
@@ -167,6 +114,9 @@
       <find>name</find>
       <find>console.</find>
       <find>outputPath</find>
+      <find>module.exports</find>
+      <find>resizeImageSharp</find>
+      <find>calcu</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -321,7 +271,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552662497478</updated>
-      <workItem from="1552662498792" duration="22502000" />
+      <workItem from="1552662498792" duration="23083000" />
     </task>
     <task id="LOCAL-00001" summary="sdsdsds">
       <created>1552767256422</created>
@@ -330,11 +280,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552767256422</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ASDASDS">
+      <created>1552771725133</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552771725133</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22502000" />
+    <option name="totallyTimeSpent" value="23083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -366,7 +323,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sdsdsds" />
-    <option name="LAST_COMMIT_MESSAGE" value="sdsdsds" />
+    <MESSAGE value="ASDASDS" />
+    <option name="LAST_COMMIT_MESSAGE" value="ASDASDS" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/BetterImagesWebpackPlugin.js</url>
+          <line>348</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/sharp/lib/input.js">
@@ -556,22 +526,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/responsive-loader.flow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="142" column="3" selection-start-line="142" selection-start-column="3" selection-end-line="147" selection-end-column="37" />
+        <state relative-caret-position="2540">
+          <caret line="196" column="13" selection-start-line="196" selection-start-column="13" selection-end-line="196" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BetterImagesWebpackPlugin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="188" column="30" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
+        <state relative-caret-position="602">
+          <caret line="53" lean-forward="true" selection-start-line="6" selection-end-line="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BetterImagesLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="242" column="63" selection-start-line="242" selection-start-column="63" selection-end-line="242" selection-end-column="63" />
+        <state relative-caret-position="643">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>
